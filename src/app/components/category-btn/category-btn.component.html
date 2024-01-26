@@ -1,0 +1,9 @@
+<div class="btn-container">
+  <div *ngFor="let category of getProductsCategories()">
+    <mat-card-actions>
+      <button mat-raised-button routerLink="{{ category }}">
+        {{ category }}
+      </button></mat-card-actions
+    >
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="navigation">
+  <div class="nav-btn-container" *ngIf="!currentUser.isAuthorized">
+    <button mat-raised-button (click)="showRegister()">SignUp</button>
+    <button mat-raised-button (click)="showLogin()">Login</button>
+    <button mat-raised-button (click)="setCurrentUser()">user</button>
+  </div>
+
+  <div class="user-info-wrapper" *ngIf="currentUser.isAuthorized">
+    <h1>{{ currentUser.login }}</h1>
+    <h1>{{ currentUser.userRole }}</h1>
+    <img class="avatar" [src]="currentUser.img" alt="user.image" />
+    <button mat-raised-button (click)="logOut()">log out</button>
+    <button mat-raised-button routerLink="products">show products</button>
+    <button
+      mat-raised-button
+      (click)="addProduct()"
+      *ngIf="currentUser.userRole === 'Admin'"
+    >
+      Add new product
+    </button>
+  </div>
+
+  <app-signup *ngIf="showModal === 'register'"></app-signup>
+  <app-login *ngIf="showModal === 'login'"></app-login>
+</div>

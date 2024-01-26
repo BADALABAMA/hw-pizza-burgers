@@ -1,0 +1,32 @@
+<form
+  *ngIf="!showModal"
+  class="modal"
+  (ngSubmit)="registerNewUser(login, password)"
+>
+  <mat-form-field class="example-full-width">
+    <mat-label>User Login</mat-label>
+    <input
+      class="input"
+      name="login"
+      type="text"
+      [(ngModel)]="login"
+      required
+      placeholder="login"
+      matInput
+      placeholder="User login"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input
+      class="input"
+      type="password"
+      [(ngModel)]="password"
+      required
+      placeholder="password"
+      matInput
+    />
+  </mat-form-field>
+  <button mat-raised-button class="button" type="submit">register</button>
+</form>
